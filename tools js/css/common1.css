@@ -1,0 +1,943 @@
+/* Site-wide stylesheet: page frame, header/footer/navbar, login modal, forms, buttons, tables, alerts and the rules shared by several pages. Loaded on every page. Page-specific rules live in search.css, tools.css, account.css, order.css, product.css. */
+
+/* Colour palette. Every colour of the own stylesheets is defined here once; the dark theme redefines these variables. */
+:root {
+  --ix-bg: #fff;
+  --ix-bg-raised: #fafafa;
+  --ix-bg-muted: #f5f5f5;
+  --ix-bg-soft: #f8f8f8;
+  --ix-bg-hover: #f2f2f4;
+  --ix-bg-active: #e9ecef;
+  --ix-bg-hover-dark: #eee;
+  --ix-bg-filter: lightgray;
+  --ix-border-mid: #aaa;
+  --ix-border: #ddd;
+  --ix-border-soft: rgba(0, 0, 0, 0.25);
+  --ix-border-strong: rgba(0,0,0,.5);
+  --ix-border-input: rgb(168, 168, 168);
+  --ix-shadow: rgba(0, 0, 0, 0.175);
+  --ix-text: #000;
+  --ix-text-inverse: #fff; /* text on a coloured or dark surface; the same in both themes */
+  --ix-text-dark: #333;
+  --ix-text-muted: grey;
+  --ix-text-icon: #4c4c4c;
+  --ix-text-disabled: #d5d5d5;
+  --ix-link: #007bff;
+  --ix-link-visited: #0056b3;
+  --ix-accent: #0070ff;
+  --ix-accent-label: #005cb3;
+  --ix-brand-dark: #0b2540;
+  --ix-info: #17a2b8;
+  --ix-selector: #343a90;
+  --ix-danger: #ff5e5e;
+  --ix-danger-border: #8f130c;
+  --ix-headline: #1585ff;
+  --ix-stats-bg: #343a40;
+  --ix-info-bg: #d1ecf1;
+  --ix-info-border: #bee5eb;
+  --ix-info-text: #0c5460;
+  --ix-border-news: #ccc;
+  --ix-highlight: yellow;
+  --ix-plain-blue: blue;
+  --ix-error: #ff0000;
+  --ix-available: #00b050;
+  --ix-border-form: #ced4da;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    scroll-padding-top: 80px; /* height of sticky header */
+}
+
+body {
+    padding-top: 72px; /* height of the fixed navbar; the only place that compensates for it */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background: var(--ix-bg-soft);
+}
+
+.form-signin {
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin > .inputDiv {
+  margin-bottom: 1rem;
+}
+
+.form-signin .invalid-feedback {
+  text-align: left;
+}
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: .375rem .75rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.form-signin .custom-control {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-signin hr {
+  margin-top: 35px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+ul {
+  padding-left: 0;
+  margin-left: -15px;
+}
+
+ul a:hover {
+  text-decoration: none;
+}
+
+.navbar_button {
+  min-width: 130px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn.navbar-toggler {
+   border-radius: 0.25rem;
+}
+
+.text-dark {
+  color: var(--ix-text-dark);
+}
+
+.btn.active,
+.btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-control {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.input-main.row > div[class*="col-"] {
+  padding: 0;
+}
+
+#Term {
+  border-radius: 0;
+}
+
+input[type="text"] {
+  text-overflow: ellipsis;
+}
+
+.pre-details.tree {
+  background: var(--ix-bg);
+  border: 1px solid var(--ix-border-strong) !important;
+}
+
+pre {
+  font-size: 14px;
+  background: var(--ix-bg-muted);
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+}
+
+a:not([href]):not([tabindex]) {
+  color: var(--ix-link);
+  text-decoration: none;
+}
+
+/* Blue rule above a closing section (About: team, Contact: abuse link) */
+.sectionDivider {
+  border-top: 1px solid var(--ix-link);
+}
+
+.tooltip {
+  opacity: 1;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.tooltip-inner {
+  border-radius: 0;
+  max-width: inherit;
+}
+
+button:focus {
+  outline: 0 dotted;
+}
+
+#ix_logo img {
+  display: block;
+  width: 180px;
+}
+
+.modal-content {
+  border-radius: 0;
+}
+
+.modal-backdrop {
+  opacity: 0.5 !important;
+}
+
+.custom-select {
+  border-radius: 0;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  opacity: 1;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: var(--ix-bg);
+}
+
+@media (max-width: 575px) {
+  .tooltip {
+      display: none !important;
+    }
+
+  .fa {
+      font-size: 20px !important;
+    }
+
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+        max-width: 1000px;
+        margin-top: 125px;
+      }
+
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .fa {
+      font-size: 20px;
+    }
+
+}
+.jumbotron {
+  border-radius: 0;
+}
+
+.jumbotron.indexPage {
+  padding-top: 15px;
+  margin-bottom: 0;
+  background: none;
+}
+
+a:focus {
+  outline: 0 !important;
+}
+
+/* State class for everything JS shows and hides (common.js show/hide/setVisible). Elements keep their own display rule; this wins over it. */
+.hidden {
+  display: none !important;
+}
+
+.pro_bucket {
+  font-size: 0.7rem;
+  margin-left: 5px;
+  padding: 0 3px;
+  color: var(--ix-text-inverse);
+  background-color: var(--ix-plain-blue);
+  float: right;
+}
+
+#clear_filters {
+  float: right;
+}
+
+.warning {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.alert {
+    border-radius: 0;
+}
+
+.warning > .alert.alert-info {
+  border-radius: 0;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+#tab {
+  clear: both;
+}
+
+@media (max-width: 991px) {
+  .nav-link {
+      border-bottom: 1px solid var(--ix-bg-raised);
+    }
+
+  .signup_btn {
+      width: 100%;
+    }
+
+}
+.btn-outline-primary {
+  border: solid 2px;
+}
+
+@media (min-width: 992px) {
+  .signup_btn {
+      margin-left: 20px;
+    }
+
+}
+.show {
+  display: block!important;
+}
+
+.nav-item:not(.active) > .nav-link:hover {
+  background-color: var(--ix-bg-hover);
+}
+
+.nav-tabs > .nav-item > .nav-link {
+  border-radius: 0;
+}
+
+.nav-item > .nav-link.active {
+  border-top: 1px solid var(--ix-bg-active);
+  border-left: 1px solid var(--ix-bg-active);
+  border-right: 1px solid var(--ix-bg-active);
+  border-bottom: 1px solid var(--ix-bg);
+  color: var(--ix-text);
+}
+
+.licenseList {
+  padding-left: 40px;
+  margin-left: 0;
+}
+
+.collapse.in {
+  display: block;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.nomargin {
+  margin: 0 !important;
+}
+
+.text-align-right {
+  text-align: right !important;
+}
+
+.footer .copyright {
+  float: left;
+}
+
+.footer #footerLinks {
+  float: right;
+}
+
+.footer #footerLinks a {
+  color: var(--ix-text);
+  margin-left: 30px;
+}
+
+.footer #footerLinks a:hover {
+  text-decoration: none;
+}
+
+/* Narrow screens: the link row must stay on the 60 px footer band. Icons go, spacing and font shrink so the six-to-three links fit a 360 px phone. */
+@media (max-width: 575px) {
+  .footer #footerLinks {
+    font-size: 14px;
+  }
+
+  .footer #footerLinks a {
+    margin-left: 12px;
+  }
+
+  .footer .footer-social {
+    display: none;
+  }
+}
+
+#overview {
+  margin-top: 30px;
+}
+
+#captchaBlock input {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#captchaBlock label {
+  display: block;
+  text-align: left;
+}
+
+/* ALTCHA widget: the library's variables mapped onto the site palette, flat and square like the inputs next to it */
+altcha-widget {
+  --altcha-border-width: 1px;
+  --altcha-border-radius: 0;
+  --altcha-checkbox-border-radius: 0;
+  --altcha-color-base: var(--ix-bg);
+  --altcha-color-base-content: var(--ix-text);
+  --altcha-border-color: var(--ix-border-form);
+  --altcha-color-neutral: var(--ix-border-form);
+  --altcha-color-neutral-content: var(--ix-text-muted);
+  --altcha-color-primary: var(--ix-link);
+  --altcha-color-primary-content: var(--ix-text-inverse);
+  --altcha-color-success: var(--ix-available);
+  --altcha-color-error: var(--ix-error);
+  --altcha-shadow: none;
+  --altcha-max-width: none;
+  display: block;
+}
+
+altcha-widget.is-invalid {
+  --altcha-border-color: var(--ix-error);
+}
+
+altcha-widget.is-invalid + .invalid-feedback {
+  display: block;
+}
+
+#signup_submit {
+  max-width: 440px;
+  margin: 50px auto 80px auto;
+}
+
+#navbarSupportedContent {
+  position: absolute;
+  width: 200px;
+  margin-top: 5px;
+  right: 16px;
+  background: var(--ix-bg);
+  border: 1px solid var(--ix-bg-raised);
+}
+
+@media (min-width: 992px) {
+  #navbarBrowserSupportedContent {
+      display: block;
+    }
+
+}
+@media (max-width: 992px) {
+  #navbarBrowserSupportedContent {
+      display: none;
+    }
+
+}
+#errorPage {
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+div.is-invalid {
+	display: block;
+}
+
+
+.jumbotron.indexPage.abusePage label {
+   min-width: 90px;
+   margin: 1em 0 0 0;
+   padding: 0;
+}
+
+.jumbotron.indexPage.abusePage altcha-widget label {
+   min-width: 0;
+   margin: 0;
+}
+
+.jumbotron.indexPage.abusePage ul {
+   padding-left: 50px;
+}
+
+.jumbotron.indexPage.abusePage input[type=text] {
+   width: 100%;
+}
+
+.jumbotron.indexPage.abusePage input[type=email] {
+   width: 100%;
+   border: 1px solid var(--ix-border-input);
+   border-collapse: collapse;
+   text-overflow: ellipsis;
+   /*border-style: inset;*/
+   line-height: 24px;
+   border-image-outset: 0;
+   box-sizing: border-box;
+   height: 30px;
+}
+
+.jumbotron.indexPage.abusePage input.captcha {
+   width: 100px;
+}
+
+.jumbotron.indexPage.abusePage textarea {
+   width: 100%;
+   height: 200px;
+}
+
+.jumbotron.indexPage.abusePage button[type=submit] {
+   max-width: 440px;
+   margin: 50px auto 80px auto;
+}
+
+.jumbotron.indexPage.abusePage label.choice {
+   margin: 0 0 0 1em;
+   padding: 0;
+}
+
+.articleContent {
+   padding: 0 20%;
+}
+
+@media (max-width: 575px) {
+  .articleContent {
+        padding: 0;
+     }
+
+}
+@media (max-width: 1200px) {
+  .articleContent {
+        padding: 0 10%;
+     }
+
+}
+@media (max-width: 768px) {
+  .articleContent {
+        padding: 0 5%;
+     }
+
+}
+.signup_btn {float: left}
+
+.tab {
+	height: 90% !important;
+}
+
+.alert-danger {
+  border-left: 5px solid var(--ix-danger-border);
+  border-radius: 0;
+}
+
+.alert-info {
+  border-radius: 0;
+}
+
+.license-expiry .alert {
+  margin-bottom: 0;
+  border: 0;
+}
+
+/* Article pages (about, academia, product): headline band, centered text rows */
+.article-headline {
+    background-color: var(--ix-bg-soft);
+    padding: 40px;
+}
+
+.article-headline h1 {
+    color: var(--ix-headline);
+}
+
+.row-centered {
+    justify-content: center;
+}
+
+.article-gap {
+    margin-top: 1%;
+}
+
+.indented-list {
+    padding-left: 40px;
+    margin-left: 0;
+}
+
+.footer-icon {
+    color: var(--ix-text-muted);
+}
+
+/* Payment result pages (payment_success, payment_error) */
+.payment-status {
+    text-align: center;
+}
+
+.payment-status .status {
+    padding-top: 1.5%;
+}
+
+.payment-status .status > .fa {
+    font-size: 10em;
+    color: var(--ix-headline);
+}
+
+.payment-status .status-error > .fa {
+    color: var(--ix-error);
+}
+
+.payment-status .btcInfo {
+    padding: 1.5% 0 1% 0;
+}
+
+/* Dark theme: follows the OS/browser preference, no toggle. First the site palette is redefined, then the Bootstrap subset rules that carry
+   hard-coded light colours, then the own rules that have none. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark; /* native scrollbars, date inputs and select lists follow */
+    --ix-bg: #1e1e1e;
+    --ix-bg-raised: #252525;
+    --ix-bg-muted: #1c1c1c;
+    --ix-bg-soft: #1c1c1c;
+    --ix-bg-hover: #2a2a2a;
+    --ix-bg-active: #2e2e2e;
+    --ix-bg-hover-dark: #2e2e2e;
+    --ix-bg-filter: #2e2e2e;
+    --ix-border-mid: #3a3a3a;
+    --ix-border: #2e2e2e;
+    --ix-border-soft: #2e2e2e;
+    --ix-border-strong: #3a3a3a;
+    --ix-border-input: #3a3a3a;
+    --ix-text: #e0e0e0;
+    --ix-text-dark: #e0e0e0;
+    --ix-text-muted: #999999;
+    --ix-text-icon: #999999;
+    --ix-text-disabled: #555;
+    --ix-link: #6db3f2;
+    --ix-link-visited: #5b98cc;
+    --ix-accent: #6db3f2;
+    --ix-accent-label: #3a7bd5;
+    --ix-info: #2a6a8a;
+    --ix-selector: #6db3f2;
+    --ix-danger: #3a1a1a;
+    --ix-danger-border: #8a3030;
+    --ix-headline: #6db3f2;
+    --ix-info-bg: #162f45;
+    --ix-info-border: #2a6a8a;
+    --ix-info-text: #5bbfde;
+    --ix-border-news: #2e2e2e;
+    --ix-plain-blue: #6db3f2;
+    --ix-error: #d97572;
+    --ix-available: #6fca6f;
+    --ix-border-form: #3a3a3a;
+  }
+
+  /* Bootstrap subset: page, text, links */
+  body {
+    color: #e0e0e0;
+    background-color: #1a1a1a;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #e8e8e8;
+  }
+
+  a {
+    color: #6db3f2;
+  }
+
+  a:hover {
+    color: #8ec8ff;
+  }
+
+  hr {
+    border-top-color: #2e2e2e;
+  }
+
+  pre {
+    color: #e0e0e0;
+  }
+
+  .text-muted {
+    color: #999999 !important;
+  }
+
+  .text-dark {
+    color: #e0e0e0 !important;
+  }
+
+  a.text-dark:hover, a.text-dark:focus {
+    color: #e8e8e8 !important;
+  }
+
+  .bg-light {
+    background-color: #252525 !important;
+  }
+
+  .bg-white {
+    background-color: #1e1e1e !important;
+  }
+
+  /* Bootstrap subset: navbar */
+  .navbar.bg-white {
+    background-color: #141414 !important;
+  }
+
+  .navbar-light .navbar-toggler {
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  #ix_logo img {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  /* Bootstrap subset: tables */
+  .table {
+    color: #e0e0e0;
+  }
+
+  .table th, .table td {
+    border-top-color: #2e2e2e;
+  }
+
+  .table thead th {
+    border-bottom-color: #2e2e2e;
+  }
+
+  .table-hover tbody tr:hover {
+    color: #e0e0e0;
+    background-color: #2a2a2a;
+  }
+
+  /* Bootstrap subset: forms */
+  .form-control, .custom-select {
+    color: #e0e0e0;
+    background-color: #252525;
+    border-color: #3a3a3a;
+  }
+
+  .form-control:focus, .custom-select:focus {
+    color: #e0e0e0;
+    background-color: #2a2a2a;
+    border-color: #6db3f2;
+  }
+
+  altcha-widget {
+    --altcha-color-base: #252525;
+    --altcha-border-color: #3a3a3a;
+  }
+
+  .form-control::placeholder {
+    color: #777;
+  }
+
+  .form-control:disabled, .form-control[readonly], .custom-select:disabled {
+    color: #777;
+    background-color: #1a1a1a;
+  }
+
+  .custom-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23e0e0e0' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+  }
+
+  .invalid-feedback {
+    color: #d97572;
+  }
+
+  .was-validated .form-control:invalid, .form-control.is-invalid,
+  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+    border-color: #d97572;
+  }
+
+  .custom-control-label::before {
+    background-color: #252525;
+    border-color: #3a3a3a;
+  }
+
+  .custom-control-input:checked ~ .custom-control-label::before,
+  .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
+    border-color: #6db3f2;
+    background-color: #6db3f2;
+  }
+
+  .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: #6db3f2;
+  }
+
+  .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
+    background-color: #3a7bd5;
+    border-color: #3a7bd5;
+  }
+
+  .custom-control-input:disabled ~ .custom-control-label {
+    color: #777;
+  }
+
+  .custom-control-input:disabled ~ .custom-control-label::before {
+    background-color: #1a1a1a;
+  }
+
+  /* Bootstrap subset: buttons. The solid buttons (primary, secondary, success) keep their colours in both themes. */
+  .btn-outline-primary {
+    color: #6db3f2;
+    border-color: #6db3f2;
+  }
+
+  .btn-outline-primary:hover,
+  .btn-outline-primary:not(:disabled):not(.disabled):active {
+    background-color: #6db3f2;
+    border-color: #6db3f2;
+  }
+
+  .btn-outline-primary.disabled, .btn-outline-primary:disabled {
+    color: #6db3f2;
+  }
+
+  /* Bootstrap subset: tabs, cards, lists, jumbotron */
+  .nav-tabs {
+    border-bottom-color: #2e2e2e;
+  }
+
+  .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #2e2e2e #2e2e2e #2e2e2e;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #e0e0e0;
+    background-color: #1e1e1e;
+    border-color: #2e2e2e #2e2e2e #1e1e1e;
+  }
+
+  .nav-pills .nav-link.active {
+    background-color: #6db3f2;
+  }
+
+  .card {
+    background-color: #1e1e1e;
+    border-color: #2e2e2e;
+  }
+
+  .card-header {
+    background-color: #252525;
+    border-bottom-color: #2e2e2e;
+  }
+
+  .list-group-item {
+    background-color: #1e1e1e;
+    border-color: #2e2e2e;
+  }
+
+  .jumbotron {
+    background-color: #1c1c1c;
+  }
+
+  /* Bootstrap subset: alerts */
+  .alert-success {
+    color: #6fca6f;
+    background-color: #1a3a1a;
+    border-color: #2d6b2d;
+  }
+
+  .alert-info {
+    color: #5bbfde;
+    background-color: #162f45;
+    border-color: #2a6a8a;
+  }
+
+  .alert-warning {
+    color: #e8b976;
+    background-color: #3a2e15;
+    border-color: #8a6820;
+  }
+
+  .alert-danger {
+    color: #d97572;
+    background-color: #3a1a1a;
+    border-color: #8a3030;
+  }
+
+  /* Bootstrap subset: modal, close, tooltip */
+  .close, .close:hover {
+    color: #e0e0e0;
+    text-shadow: none;
+  }
+
+  .modal-content {
+    background-color: #1e1e1e;
+    border-color: #2e2e2e;
+  }
+
+  .modal-header {
+    border-bottom-color: #2e2e2e;
+  }
+
+  .modal-footer {
+    border-top-color: #2e2e2e;
+  }
+
+  .tooltip-inner {
+    color: #e0e0e0;
+    background-color: #3a3a3a;
+  }
+
+  .bs-tooltip-top .arrow::before {
+    border-top-color: #3a3a3a;
+  }
+
+  .bs-tooltip-right .arrow::before {
+    border-right-color: #3a3a3a;
+  }
+
+  .bs-tooltip-bottom .arrow::before {
+    border-bottom-color: #3a3a3a;
+  }
+
+  .bs-tooltip-left .arrow::before {
+    border-left-color: #3a3a3a;
+  }
+
+  /* Own rule: the PRO label keeps white text, so its fill stays dark enough to read */
+  .pro_bucket {
+    background-color: #3a7bd5;
+  }
+}

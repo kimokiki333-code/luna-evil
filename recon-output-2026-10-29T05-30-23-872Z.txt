@@ -1,0 +1,141 @@
+Recon Results from https://publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+
+ queryParams in https://publicwww.com/images/js/sha256.min.js (5)
+&i.constructor=
+?s=
+&t.buffer.constructor=
+&t.constructor=
+?module.exports=
+
+ fullUrls in https://publicwww.com/images/js/sha256.min.js (1)
+https://github.com/emn178/js-sha256}
+
+ apiEndpoints in https://publicwww.com/images/js/sha256.min.js (2)
+//github.com/emn178/js-sha256
+/4294967296
+
+ jsVariables in https://publicwww.com/images/js/sha256.min.js (1)
+var h="input is invalid type"
+
+ exposedSecrets in https://publicwww.com/images/js/sha256.min.js (1)
+emn178@gmail.com
+
+ suspiciousEval in https://publicwww.com/images/js/sha256.min.js (2)
+eval("require('crypto')
+eval("require('buffer')
+
+ fullUrls (42)
+https://publicwww.ai/
+https://publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://de.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://es.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://fr.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://pt.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://it.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://tr.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ru.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ua.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ja.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ko.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://zh.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://hk.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://publicwww.com/
+https://publicwww.com/images/js/sha256.min.js
+
+ apiEndpoints (121)
+/title
+/images/favicon7/apple-touch-icon.png
+/png
+/images/favicon7/favicon-32x32.png
+/images/favicon7/favicon-16x16.png
+/images/favicon7/manifest.json
+/images/favicon7/safari-pinned-tab.svg
+/images/favicon7/favicon.ico
+/images/favicon7/browserconfig.xml
+/opensearchdescription
+/images/opensearch.xml
+/images/css/bootstrap.5.3.3.min.css
+/images/css/bootstrap-icons.subset.2.css
+/images/css/style.9.css
+/head
+/span
+/label
+//publicwww.ai
+/docs
+/prices.html
+/profile/enter.html
+/summary
+//publicwww.com/websites
+//de.publicwww.com/websites
+//es.publicwww.com/websites
+//fr.publicwww.com/websites
+//pt.publicwww.com/websites
+//it.publicwww.com/websites
+//tr.publicwww.com/websites
+//ru.publicwww.com/websites
+//ua.publicwww.com/websites
+//ja.publicwww.com/websites
+//ko.publicwww.com/websites
+//zh.publicwww.com/websites
+//hk.publicwww.com/websites
+/div
+/details
+/theme.html
+/websites
+/button
+/form
+/nav
+/header
+/script
+/.test
+/noscript
+/images/js/sha256.min.js
+/docs/examples/ads
+/docs/examples/marketing
+/docs/examples/analytics
+/docs/examples/webtech
+/docs/examples/frontend
+/docs/examples/widgets
+/docs/examples/cms
+/docs/use-cases
+/popular/imgfiles/index.html
+/popular/jsfiles/index.html
+/popular/cssfiles/index.html
+/popular
+/terms.html
+/privacy.html
+//publicwww.com
+/footer
+/body
+/html
+//publicwww.com/images/js/sha256.min.js
+
+ jsVariables (4)
+var task = "16.1793249952.5ebd32f0d8e81d1e.90dc445d07052bff82dd3c81ace52639"
+var then = "reload"
+
+ exposedSecrets (4)
+support@publicwww.com
+
+  In-Scope JS Files Scanned (1)
+âœ” /images/js/sha256.min.js
+
+  In-Scope URLs (publicwww.com) (15)
+https://publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://de.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://es.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://fr.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://pt.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://it.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://tr.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ru.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ua.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ja.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://ko.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://zh.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://hk.publicwww.com/websites/%22g-https%3A%2F%2Fbadrai.page.gd-%22/
+https://publicwww.com/
+https://publicwww.com/images/js/sha256.min.js
+
+  Out-of-Scope URLs (1)
+https://publicwww.ai/
