@@ -1,0 +1,35 @@
+{
+  "name": "There's An AI For That",
+  "short_name": "TAAFT",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "scope": "/",
+  "theme_color": "#343541",
+  "background_color": "#343541",
+  "display": "standalone",
+  "start_url": "/",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "id": "https://theresanaiforthat.com/"
+    }
+  ],
+  "prefer_related_applications": false
+}

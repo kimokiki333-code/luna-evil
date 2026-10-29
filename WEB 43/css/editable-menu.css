@@ -1,0 +1,1067 @@
+
+.editable_menu_enabled #menu:where(.menu_pins),
+.editable_menu_enabled #ctrl_add_to_menu,
+.editable_menu_enabled .add_to_menu_btn{
+    --color-chrome: #fcc11b;
+}
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins),
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu,
+html.light_mode.editable_menu_enabled .add_to_menu_btn{
+    --color-chrome: #a97d18;
+}
+.editable_menu_enabled #ctrl_right{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    flex-wrap:nowrap;
+}
+.editable_menu_enabled #ctrl_right #ctrl_user{
+    flex:0 0 auto;
+    align-self:center;
+}
+.editable_menu_enabled #ctrl .user_stats,
+.editable_menu_enabled #ctrl .user_ais_count,
+.editable_menu_enabled #ctrl .user_karma{
+    white-space:nowrap;
+}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn{
+    appearance:none;-webkit-appearance:none;margin:0 0 0 6px;outline:none;
+    background:var(--background-dark-slate);border:1px solid var(--border-dark-gray);
+    box-shadow:0 0 1px 0 var(--box-shadow-dark);cursor:pointer;color:var(--color-light);
+    padding:4px;display:none;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:6px;opacity:1;transition:opacity .15s;
+    flex:0 0 auto;align-self:center;box-sizing:border-box;
+    position:relative;z-index:2;
+}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready{display:inline-flex}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn:hover{opacity:.8}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn svg{width:18px;height:18px;display:block}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn .ctrl_add_to_menu_icon_remove{display:none}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn.added .ctrl_add_to_menu_icon_add{display:none}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn.added .ctrl_add_to_menu_icon_remove{display:block}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_default{opacity:.35;cursor:not-allowed}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_default:hover{opacity:.35}
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn{
+    background:var(--lm-surface-card);border-color:var(--lm-border);color:var(--lm-text-primary);
+    box-shadow:0 0 1px 0 rgba(0,0,0,.14);
+}
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_default{
+    opacity:.4;color:var(--lm-text-muted);
+}
+@keyframes ctrl_add_to_menu_flash{
+    0%,20%{background:rgba(59,130,246,.9);color:#fff}
+    100%{background:var(--background-dark-slate);color:var(--color-icon-light)}
+}
+@keyframes ctrl_add_to_menu_flash_lm{
+    0%,20%{background:var(--lm-alternative-blue);color:var(--lm-text-white)}
+    100%{background:var(--lm-surface-card);color:var(--lm-text-primary)}
+}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_flash,
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_settling{
+    transition:none;
+    transform:none;
+    z-index:20;
+}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_flash{
+    animation:ctrl_add_to_menu_flash .55s ease-out both;
+}
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_flash{
+    animation:ctrl_add_to_menu_flash_lm .55s ease-out both;
+}
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash),
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):hover,
+.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):active{
+    background:var(--background-dark-slate);
+    color:var(--color-icon-light);
+    opacity:1;
+}
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash),
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):hover,
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):active{
+    background:var(--lm-surface-card);
+    border-color:var(--lm-border);
+    color:var(--lm-text-primary);
+}
+
+@keyframes menu_item_flash{
+    0%,35%{
+        background: rgba(59, 130, 246, 0.55);
+        box-shadow: inset 0 0 0 1px rgba(147, 197, 253, 0.8);
+    }
+    100%{
+        background: transparent;
+        box-shadow: none;
+    }
+}
+@keyframes menu_item_flash_lm{
+    0%,35%{
+        background: rgba(59, 130, 246, 0.28);
+        box-shadow: inset 0 0 0 1px var(--lm-alternative-blue);
+    }
+    100%{
+        background: transparent;
+        box-shadow: none;
+    }
+}
+.editable_menu_enabled #menu:where(.menu_pins) [data-menu-id].menu_item_flash{
+    animation: menu_item_flash 1.4s ease;
+    border-radius: 8px;
+}
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) [data-menu-id].menu_item_flash{
+    animation: menu_item_flash_lm 1.4s ease;
+}
+.editable_menu_enabled #ctrl_add_to_menu:focus-visible,
+.editable_menu_enabled .menu_edit_pencil:focus-visible,
+.editable_menu_enabled .menu_edit_reset:focus-visible,
+.editable_menu_enabled .menu_edit_done:focus-visible,
+.editable_menu_enabled .menu_add_divider:focus-visible,
+.editable_menu_enabled .menu_item_hide_toggle:focus-visible,
+.editable_menu_enabled .menu_item_remove:focus-visible,
+.editable_menu_enabled .menu_add_pin_search_clear:focus-visible,
+.editable_menu_enabled .add_to_menu_btn:focus-visible{
+    outline: 2px solid var(--color-chrome);
+    outline-offset: 2px;
+}
+html.light_mode.editable_menu_enabled #ctrl_add_to_menu:focus-visible,
+html.light_mode.editable_menu_enabled .menu_edit_pencil:focus-visible,
+html.light_mode.editable_menu_enabled .menu_edit_reset:focus-visible,
+html.light_mode.editable_menu_enabled .menu_edit_done:focus-visible,
+html.light_mode.editable_menu_enabled .menu_add_divider:focus-visible,
+html.light_mode.editable_menu_enabled .menu_item_hide_toggle:focus-visible,
+html.light_mode.editable_menu_enabled .menu_item_remove:focus-visible,
+html.light_mode.editable_menu_enabled .menu_add_pin_search_clear:focus-visible,
+html.light_mode.editable_menu_enabled .add_to_menu_btn:focus-visible{
+    outline-color: var(--lm-border-hover);
+}
+.editable_menu_notice{
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    z-index: 1000000;
+    max-width: min(520px, calc(100vw - 32px));
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid var(--border-dark-gray);
+    border-radius: 8px;
+    background: var(--color-dark-0);
+    color: var(--color-light);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 12px);
+    transition: opacity .18s ease, transform .18s ease;
+}
+.editable_menu_notice.visible{
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+html.light_mode .editable_menu_notice{
+    background: var(--lm-surface-card);
+    border-color: var(--lm-border);
+    color: var(--lm-text-primary);
+}
+.editable_menu_enabled #menu:where(.menu_pins){
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+@media (min-width: 501px){
+    .editable_menu_enabled #menu.menu_pins{
+        top: 46px;
+        height: calc(100% - 46px);
+    }
+}
+.editable_menu_enabled #menu.menu_pins.menu_pin_reveal,
+.editable_menu_enabled #menu.menu_pins.edit_menu{
+    width: 262px;
+}
+.editable_menu_enabled #menu.menu_pins .menu_inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    padding-top: 4px;
+    padding-bottom: 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    z-index: 0;
+    scrollbar-color: var(--color-li-gradient-1) var(--color-dark-3);
+}
+.editable_menu_enabled #menu.menu_pins .menu_item > svg,
+.editable_menu_enabled #menu.menu_pins .menu_item > img,
+.editable_menu_enabled #menu.menu_pins .menu_item > .custom_menu_item_emoji{
+    flex-shrink: 0;
+}
+.editable_menu_enabled #menu.menu_pins .menu_item > .custom_menu_item_emoji{
+    width: 34px;
+    height: 34px;
+    padding: 5px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    position: relative;
+    left: -10px;
+    background: var(--background-dark-slate);
+    box-shadow: 0 0 1px 0 var(--box-shadow-dark-transparent);
+    border: 1px solid var(--border-dark-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1;
+    overflow: hidden;
+}
+.editable_menu_enabled #menu.menu_pins .menu_item.active > .custom_menu_item_emoji{
+    border: none;
+    box-shadow: none;
+}
+@media (min-width: 501px){
+    .editable_menu_enabled #menu.menu_pins .menu_inner > a > .custom_menu_item_emoji,
+    .editable_menu_enabled #menu.menu_pins .menu_inner > a span.custom_menu_item_emoji{
+        opacity: 1;
+    }
+}
+.editable_menu_enabled .menu_item_drag_handle{
+    display: none;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='%23646676' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='6.5' cy='5.5' r='.6'/%3E%3Ccircle cx='6.5' cy='7.5' r='.6'/%3E%3Ccircle cx='6.5' cy='9.5' r='.6'/%3E%3Ccircle cx='8.5' cy='5.5' r='.6'/%3E%3Ccircle cx='8.5' cy='7.5' r='.6'/%3E%3Ccircle cx='8.5' cy='9.5' r='.6'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: grab;
+}
+.editable_menu_enabled .menu_item_drag_handle:active{
+    cursor: grabbing;
+}
+.editable_menu_enabled .menu_item_hide_toggle{
+    display: none;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    order: 10;
+    margin-left: auto;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 1px var(--color-medium);
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow .15s ease, background-color .15s ease, transform .1s ease;
+}
+.editable_menu_enabled .menu_item_hide_toggle.checked{
+    box-shadow: inset 0 0 0 10px var(--color-chrome);
+}
+.editable_menu_enabled .menu_item_hide_toggle.checked::before{
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    line-height: 1;
+    color: var(--color-dark);
+}
+.editable_menu_enabled .menu_item_hide_toggle:hover{
+    box-shadow: inset 0 0 0 1px var(--color-chrome);
+    background: var(--background-medium);
+}
+.editable_menu_enabled .menu_item_hide_toggle.checked:hover{
+    box-shadow: inset 0 0 0 10px var(--color-chrome), 0 0 0 3px rgba(252, 193, 27, 0.35);
+}
+.editable_menu_enabled .menu_item_hide_toggle:active{
+    transform: scale(0.88);
+}
+.editable_menu_enabled #menu.edit_menu .menu_item_drag_handle,
+.editable_menu_enabled #menu.edit_menu .menu_item_hide_toggle{
+    display: flex;
+}
+.editable_menu_enabled #menu.edit_menu .external_ai_link{
+    display: none;
+}
+.editable_menu_enabled #menu.edit_menu .menu_inner > a span:not(.img):not(.headerbtn_saved):not(.custom_menu_item_emoji){
+    opacity: 1;
+}
+.editable_menu_enabled #menu.menu_pins .menu_inner > a > span:not(.img):not(.headerbtn_saved):not(.menu_item_drag_handle):not(.menu_item_hide_toggle):not(.menu_item_remove),
+.editable_menu_enabled #menu.edit_menu .menu_inner > a span:not(.img):not(.headerbtn_saved):not(.menu_item_drag_handle):not(.menu_item_hide_toggle):not(.menu_item_remove){
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.editable_menu_enabled #menu.edit_menu .menu_item{
+    cursor: default;
+    padding-left: 0;
+}
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu) .hidden_menu_item:not(.active){
+    display: none;
+}
+.editable_menu_enabled #menu.edit_menu .hidden_menu_item{
+    opacity: 0.4;
+}
+.editable_menu_enabled #menu.edit_menu .divider{
+    height: 50px;
+    margin: 0;
+    background: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 13px 0 0;
+    box-sizing: border-box;
+}
+.editable_menu_enabled #menu.edit_menu .divider::after{
+    content: '';
+    position: absolute;
+    left: 34px;
+    right: 47px;
+    height: 1px;
+    background: var(--color-medium-12);
+}
+.editable_menu_enabled #menu:where(.menu_pins) .is-being-dragged{
+    opacity: 0.2;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .sortable-drag{
+    background: var(--color-dark-2);
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_item.submit.ai-tool{
+    margin-top: 0;
+}
+.editable_menu_enabled #menu_edit_hover_slot{
+    --menu-chrome-clearance: 18px;
+    --menu-chrome-band: 48px;
+    --menu-chrome-solid-tail: 8px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    flex: none;
+    height: calc(var(--menu-chrome-band) + var(--menu-chrome-clearance));
+    max-height: calc(var(--menu-chrome-band) + var(--menu-chrome-clearance));
+    min-height: calc(var(--menu-chrome-band) + var(--menu-chrome-clearance));
+    margin: 0;
+    padding: 0 0 var(--menu-chrome-clearance);
+    overflow: visible;
+    background: transparent;
+    pointer-events: none;
+}
+.editable_menu_enabled #menu_edit_hover_slot::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(to bottom, transparent, var(--color-dark-background-5) calc(100% - var(--menu-chrome-solid-tail)));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 calc(100% - var(--menu-chrome-solid-tail)));
+    mask-image: linear-gradient(to bottom, transparent, #000 calc(100% - var(--menu-chrome-solid-tail)));
+    transition: opacity .24s cubic-bezier(.4, 0, .2, 1);
+}
+html.light_mode.editable_menu_enabled #menu_edit_hover_slot::before{
+    background: linear-gradient(to bottom, transparent, var(--lm-main) calc(100% - var(--menu-chrome-solid-tail)));
+}
+html.editable_menu_enabled body.visitor #menu_edit_hover_slot{
+    display: none !important;
+}
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu):hover #menu_edit_hover_slot::before,
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_pin_reveal #menu_edit_hover_slot::before,
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_edit_chrome_reveal #menu_edit_hover_slot::before,
+.editable_menu_enabled body.expanded_menu #menu:where(.menu_pins):not(.edit_menu) #menu_edit_hover_slot::before{
+    opacity: 1;
+}
+.editable_menu_enabled #menu.edit_menu #menu_edit_hover_slot{
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    flex: 0 0 auto;
+    height: auto;
+    max-height: none;
+    min-height: 52px;
+    padding: 12px 6px 10px;
+    overflow: visible;
+    background: var(--color-dark-background-5);
+    border-top: 1px solid rgba(127, 127, 127, 0.28);
+    z-index: 20;
+    pointer-events: auto;
+}
+.editable_menu_enabled #menu.edit_menu #menu_edit_hover_slot::before{
+    content: none;
+}
+html.light_mode.editable_menu_enabled #menu.edit_menu #menu_edit_hover_slot{
+    background: var(--lm-main);
+    border-top-color: var(--lm-border);
+}
+.editable_menu_enabled .menu_edit_fixture{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 24px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+.editable_menu_enabled #menu.edit_menu .menu_edit_fixture{
+    height: auto;
+    justify-content: flex-start;
+    padding: 0 13px 0 3px;
+}
+.editable_menu_enabled .menu_edit_pencil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: auto;
+    height: 18px;
+    padding: 0 8px 0 7px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    background: var(--background-dark-slate);
+    color: var(--color-icon-light);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: background-color .15s ease, color .15s ease, transform .2s cubic-bezier(.4, 0, .2, 1), opacity .24s cubic-bezier(.4, 0, .2, 1);
+}
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu):hover .menu_edit_pencil,
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_pin_reveal .menu_edit_pencil,
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_edit_chrome_reveal .menu_edit_pencil,
+.editable_menu_enabled body.expanded_menu #menu:where(.menu_pins):not(.edit_menu) .menu_edit_pencil{
+    opacity: 1;
+    pointer-events: auto;
+}
+.editable_menu_enabled .menu_edit_pencil svg{
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+.editable_menu_enabled .menu_edit_pencil svg path{
+    fill: currentColor;
+}
+.editable_menu_enabled .menu_edit_pencil_label{
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+}
+.editable_menu_enabled .menu_edit_pencil:hover{
+    background: var(--background-dark-slate-2);
+    color: var(--color-chrome);
+}
+.editable_menu_enabled .menu_edit_pencil:active{
+    transform: scale(0.92);
+}
+html.light_mode.editable_menu_enabled .menu_edit_pencil{
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--lm-surface-card);
+    border: 1px solid var(--lm-border);
+    color: var(--lm-text-primary);
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+html.light_mode.editable_menu_enabled .menu_edit_pencil:hover{
+    background: var(--lm-hover-lighter);
+    border-color: var(--lm-border-hover);
+    color: var(--lm-text-primary);
+}
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu) .menu_edit_fixture{
+    gap: 6px;
+    margin: 0;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn{
+    width: auto;
+    height: 18px;
+    margin: 0;
+    padding: 0 8px 0 7px;
+    gap: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    background: var(--background-dark-slate);
+    color: var(--color-icon-light);
+    opacity: 0;
+    pointer-events: none;
+    transition: background-color .15s ease, color .15s ease, transform .2s cubic-bezier(.4, 0, .2, 1), opacity .24s cubic-bezier(.4, 0, .2, 1);
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn svg{
+    width: 12px;
+    height: 12px;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu .atm_label{
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu .atm_label_remove{
+    display: none;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.added .atm_label_add{
+    display: none;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.added .atm_label_remove{
+    display: inline;
+}
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu):hover .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready:not(.ctrl_add_to_menu_default),
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_pin_reveal .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready:not(.ctrl_add_to_menu_default),
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_edit_chrome_reveal .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready:not(.ctrl_add_to_menu_default),
+.editable_menu_enabled body.expanded_menu #menu:where(.menu_pins):not(.edit_menu) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready:not(.ctrl_add_to_menu_default){
+    opacity: 1;
+    pointer-events: auto;
+}
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu):hover .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready.ctrl_add_to_menu_default,
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_pin_reveal .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready.ctrl_add_to_menu_default,
+.editable_menu_enabled #menu:where(.menu_pins):not(.edit_menu).menu_edit_chrome_reveal .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready.ctrl_add_to_menu_default,
+.editable_menu_enabled body.expanded_menu #menu:where(.menu_pins):not(.edit_menu) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_ready.ctrl_add_to_menu_default{
+    opacity: .4;
+    pointer-events: auto;
+    cursor: not-allowed;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn:not(.ctrl_add_to_menu_default):not(.added):hover{
+    background: var(--background-dark-slate-2);
+    color: var(--color-chrome);
+    opacity: 1;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.added:not(.ctrl_add_to_menu_default):hover{
+    background: var(--color-red-2);
+    color: var(--color-white);
+    opacity: 1;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn:not(.ctrl_add_to_menu_default):active{
+    transform: scale(.92);
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling,
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:hover,
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:active{
+    transition: none;
+    transform: none;
+}
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash),
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):hover,
+.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):active{
+    background: var(--background-dark-slate);
+    color: var(--color-icon-light);
+    opacity: 1;
+}
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash),
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):hover,
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_settling:not(.ctrl_add_to_menu_flash):active{
+    background: var(--lm-surface-card);
+    border-color: var(--lm-border);
+    color: var(--lm-text-primary);
+}
+.editable_menu_enabled #menu.edit_menu .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn{
+    display: none;
+}
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn{
+    background: var(--lm-surface-card);
+    border: 1px solid var(--lm-border);
+    color: var(--lm-text-primary);
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn:not(.ctrl_add_to_menu_default):not(.added):hover{
+    background: var(--lm-hover-lighter);
+    border-color: var(--lm-border-hover);
+    color: var(--lm-text-primary);
+}
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.added:not(.ctrl_add_to_menu_default):hover{
+    background: var(--color-red-2);
+    border-color: var(--error-red);
+    color: var(--error-red);
+}
+html.light_mode.editable_menu_enabled #menu:where(.menu_pins) .menu_edit_fixture #ctrl_add_to_menu.ctrl_add_to_menu_btn.ctrl_add_to_menu_default{
+    background: var(--lm-surface-input);
+    border-color: var(--lm-border);
+    color: var(--lm-text-muted);
+}
+.editable_menu_enabled .menu_edit_actions{
+    display: none;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+}
+.editable_menu_enabled #menu.edit_menu .menu_edit_pencil{
+    display: none;
+}
+.editable_menu_enabled #menu.edit_menu .menu_edit_actions{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.editable_menu_enabled .menu_edit_actions_buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+.editable_menu_enabled .menu_edit_reset,
+.editable_menu_enabled .menu_edit_done,
+.editable_menu_enabled .menu_add_divider{
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--color-medium);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 16px;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .1s ease;
+}
+.editable_menu_enabled .menu_edit_reset{
+    background: var(--background-medium);
+    color: var(--color-light-text);
+}
+.editable_menu_enabled .menu_edit_reset:hover{
+    background: #4d4f63;
+    border-color: var(--color-light-gray);
+    color: var(--color-light);
+}
+.editable_menu_enabled .menu_edit_done{
+    flex: 1 1 auto;
+    background: var(--color-chrome);
+    border-color: var(--color-chrome);
+    color: var(--color-dark);
+}
+.editable_menu_enabled .menu_add_divider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--background-medium);
+    color: var(--color-light-text);
+}
+.editable_menu_enabled .menu_add_divider svg{
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+.editable_menu_enabled .menu_edit_done:hover,
+.editable_menu_enabled .menu_add_divider:hover{
+    background: #f5a623;
+    border-color: #f5a623;
+    color: var(--color-dark);
+}
+.editable_menu_enabled .menu_edit_reset:active,
+.editable_menu_enabled .menu_edit_done:active,
+.editable_menu_enabled .menu_add_divider:active{
+    transform: scale(0.98);
+}
+.editable_menu_enabled .menu_add_divider.disabled,
+.editable_menu_enabled .menu_add_divider[disabled]{
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.editable_menu_enabled .menu_add_pin_search{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.editable_menu_enabled .menu_add_pin_search_input_wrap{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 7px 12px;
+    background: var(--background-dark-slate);
+    border: 1px solid var(--border-dark-gray);
+    border-radius: 20px;
+}
+.editable_menu_enabled .menu_add_pin_search_input_wrap:focus-within{
+    border-color: var(--color-chrome);
+}
+.editable_menu_enabled .menu_add_pin_search_input_wrap > svg{
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+.editable_menu_enabled #menu_add_pin_search_input{
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 1 1 auto;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: var(--color-light-text);
+    font-size: 13px;
+    font-family: var(--font-family);
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+}
+.editable_menu_enabled #menu_add_pin_search_input::placeholder{
+    color: var(--color-medium);
+}
+.editable_menu_enabled .menu_add_pin_search_results{
+    max-height: 260px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-dark-gray);
+    border-radius: 12px;
+    background: var(--background-dark-slate);
+}
+.editable_menu_enabled .menu_add_pin_search_results[hidden]{
+    display: none;
+}
+.editable_menu_enabled .menu_add_pin_search_group_label{
+    padding: 8px 12px 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--color-medium);
+}
+.editable_menu_enabled .menu_add_pin_search_row{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+}
+.editable_menu_enabled .menu_add_pin_search_row:hover{
+    background: var(--background-medium);
+}
+.editable_menu_enabled .menu_add_pin_search_row .custom_menu_item_icon{
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+.editable_menu_enabled .menu_add_pin_search_row_label{
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    color: var(--color-light-text);
+}
+.editable_menu_enabled .menu_add_pin_search_row_add{
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    max-width: 16px;
+    max-height: 16px;
+    border-radius: 0;
+    border: 1px solid var(--color-chrome);
+    background: transparent;
+    color: var(--color-chrome);
+    cursor: pointer;
+}
+.editable_menu_enabled .menu_add_pin_search_row_add.added{
+    background: var(--color-chrome);
+    color: var(--color-dark);
+}
+.editable_menu_enabled .menu_add_pin_search_row_add.added::before{
+    content: '\2713';
+    font-size: 11px;
+    line-height: 1;
+}
+.editable_menu_enabled .menu_add_pin_search_loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+.editable_menu_enabled .menu_add_pin_search_spinner{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background: var(--background-dark-slate-2);
+}
+.editable_menu_enabled .menu_add_pin_search_spinner::before{
+    content: var(--svg-icon-loading-spinner);
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    top: 0;
+}
+.editable_menu_enabled .menu_add_pin_search_empty{
+    padding: 12px;
+    font-size: 13px;
+    color: var(--color-medium);
+    text-align: center;
+}
+.editable_menu_enabled .menu_add_pin_search_clear{
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 0 0 auto;
+    display: flex;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    color: var(--color-medium);
+    cursor: pointer;
+}
+.editable_menu_enabled .menu_add_pin_search_clear[hidden]{
+    display: none;
+}
+.editable_menu_enabled .menu_add_pin_search_clear:hover{
+    color: var(--color-light-text);
+}
+.editable_menu_enabled .menu_add_pin_search_clear svg{
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+.editable_menu_enabled .custom_menu_item_icon{
+    border-radius: 6px;
+    object-fit: cover;
+}
+.editable_menu_enabled .custom_menu_item_emoji{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1;
+}
+html.light_mode.editable_menu_enabled #menu.menu_pins .menu_item > .custom_menu_item_emoji{
+    background: var(--lm-surface-card);
+    border-color: var(--lm-border);
+    box-shadow: 0 0 1px 0 rgba(0,0,0,.14);
+}
+html.light_mode.editable_menu_enabled #menu.menu_pins .menu_item.active > .custom_menu_item_emoji{
+    border: none;
+    box-shadow: none;
+}
+.editable_menu_enabled .menu_item_remove{
+    display: none;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    order: 10;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 1px var(--color-medium);
+    color: var(--color-light);
+    cursor: pointer;
+    overflow: visible;
+    transition: color .15s ease, background-color .15s ease, box-shadow .15s ease, transform .1s ease;
+}
+.editable_menu_enabled #menu.edit_menu .menu_item_remove{
+    display: flex;
+}
+.editable_menu_enabled .menu_item_remove svg{
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    margin: 0;
+    left: auto;
+    top: auto;
+    position: static;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    fill: currentColor;
+    color: inherit;
+    box-sizing: border-box;
+}
+.editable_menu_enabled .menu_item_remove:hover{
+    color: var(--error-red);
+    background: rgba(255, 107, 107, 0.14);
+    box-shadow: inset 0 0 0 1px var(--error-red);
+}
+.editable_menu_enabled .menu_item_remove:active{
+    color: var(--color-white);
+    background: var(--color-remove);
+    transform: scale(0.88);
+}
+.editable_menu_enabled .add_to_menu_btn{
+    display: none;
+    align-items: center;
+    gap: 6px;
+    height: 41px;
+    padding: 6px 19px;
+    border: 1px solid var(--color-medium);
+    border-radius: var(--border-radius-large);
+    box-sizing: border-box;
+    background: var(--background-dark-slate);
+    color: var(--color-chrome);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.editable_menu_enabled .add_to_menu_btn.add_to_menu_btn_ready{
+    display: inline-flex;
+}
+.editable_menu_enabled .add_to_menu_btn:hover{
+    background: var(--background-dark-slate-2);
+    border-color: var(--color-chrome);
+}
+.editable_menu_enabled .add_to_menu_btn svg{
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+.editable_menu_enabled .add_to_menu_btn .add_to_menu_btn_icon_remove,
+.editable_menu_enabled .add_to_menu_btn .add_to_menu_btn_label_added{
+    display: none;
+}
+.editable_menu_enabled .add_to_menu_btn.added{
+    border-color: var(--color-chrome);
+    color: var(--color-chrome);
+}
+.editable_menu_enabled .add_to_menu_btn.added .add_to_menu_btn_label_add,
+.editable_menu_enabled .add_to_menu_btn.added .add_to_menu_btn_icon_add{
+    display: none;
+}
+.editable_menu_enabled .add_to_menu_btn.added .add_to_menu_btn_icon_remove,
+.editable_menu_enabled .add_to_menu_btn.added .add_to_menu_btn_label_added{
+    display: block;
+}
+html.light_mode.editable_menu_enabled .menu_item_hide_toggle{
+    box-shadow: inset 0 0 0 1px var(--lm-border);
+    background: transparent;
+}
+html.light_mode.editable_menu_enabled .menu_item_hide_toggle.checked{
+    box-shadow: inset 0 0 0 10px var(--color-chrome);
+}
+html.light_mode.editable_menu_enabled .menu_item_hide_toggle.checked::before{
+    color: var(--lm-text-white);
+}
+html.light_mode.editable_menu_enabled .menu_item_hide_toggle:hover{
+    background: rgba(169, 125, 24, 0.12);
+    box-shadow: inset 0 0 0 1px var(--color-chrome);
+}
+html.light_mode.editable_menu_enabled .menu_item_hide_toggle.checked:hover{
+    box-shadow: inset 0 0 0 10px var(--color-chrome), 0 0 0 3px rgba(169, 125, 24, 0.28);
+}
+html.light_mode.editable_menu_enabled .menu_item_remove{
+    color: var(--lm-text-muted);
+    box-shadow: inset 0 0 0 1px var(--lm-border);
+}
+html.light_mode.editable_menu_enabled .menu_item_remove:hover{
+    color: var(--error-red);
+    background: var(--color-red-2);
+    box-shadow: inset 0 0 0 1px var(--error-red);
+}
+html.light_mode.editable_menu_enabled .menu_item_remove:active{
+    color: var(--lm-text-white);
+    background: var(--color-remove);
+}
+html.light_mode.editable_menu_enabled .menu_edit_reset{
+    color: var(--lm-text-muted);
+    border-color: var(--lm-border);
+    background: var(--lm-surface-card);
+}
+html.light_mode.editable_menu_enabled .menu_edit_reset:hover{
+    background: var(--lm-hover-light);
+    border-color: var(--lm-border-hover);
+    color: var(--lm-text-primary);
+}
+html.light_mode.editable_menu_enabled .menu_edit_done{
+    color: var(--lm-text-white);
+}
+html.light_mode.editable_menu_enabled .menu_add_divider{
+    color: var(--lm-text-primary);
+    background: var(--lm-surface-card);
+    border-color: var(--lm-border);
+}
+html.light_mode.editable_menu_enabled .menu_add_divider:hover{
+    background: var(--lm-hover-light);
+    border-color: var(--lm-border-hover);
+}
+html.light_mode.editable_menu_enabled .menu_add_divider[disabled]{
+    background: var(--lm-surface-input);
+    border-color: var(--lm-border);
+    color: var(--lm-text-placeholder);
+}
+html.light_mode.editable_menu_enabled .add_to_menu_btn{
+    background: var(--lm-surface-card);
+    border-color: var(--lm-border);
+    color: var(--lm-text-primary);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_input_wrap{
+    background: var(--lm-surface-card);
+    border-color: var(--lm-border);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_input_wrap:focus-within{
+    border-color: var(--color-chrome);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_input_wrap > svg{
+    filter: invert(0.6);
+}
+html.light_mode.editable_menu_enabled #menu_add_pin_search_input{
+    color: var(--lm-text-primary);
+}
+html.light_mode.editable_menu_enabled #menu_add_pin_search_input::placeholder{
+    color: var(--lm-text-placeholder);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_results{
+    background: var(--lm-surface-card);
+    border-color: var(--lm-border);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_group_label{
+    color: var(--lm-text-muted);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_row:hover{
+    background: var(--lm-hover-light);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_row_label{
+    color: var(--lm-text-primary);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_row_add.added{
+    color: var(--lm-text-white);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_clear{
+    color: var(--lm-text-muted);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_clear:hover{
+    color: var(--lm-text-primary);
+}
+html.light_mode.editable_menu_enabled .menu_add_pin_search_empty{
+    color: var(--lm-text-muted);
+}
+@media (max-width: 500px){
+    .editable_menu_enabled body.menu_pin_reveal_open #menu:where(.menu_pins){
+        transform: translateX(0);
+    }
+}
+@media (min-width: 501px){
+    .editable_menu_enabled #menu:where(.menu_pins).menu_pin_reveal .menu_inner > a span:not(.img):not(.headerbtn_saved):not(.custom_menu_item_emoji){
+        opacity: 1;
+    }
+}
