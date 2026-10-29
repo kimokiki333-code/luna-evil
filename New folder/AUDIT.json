@@ -1,0 +1,24 @@
+{
+  "local_asset_files": 20,
+  "remaining_postimg_urls": [],
+  "pages": [
+    "video-downloader",
+    "text-to-image",
+    "ai-chat",
+    "ip-intelligence",
+    "osint-tools",
+    "ai-agents",
+    "social-media-downloader"
+  ],
+  "clipboard_markers": [
+    "navigator.clipboard.readText",
+    "visibilitychange",
+    "addEventListener(\"paste\"",
+    "getSharedText"
+  ],
+  "notes": [
+    "The original root application was preserved as the functional base; SEO head changes come from the previously generated optimized version.",
+    "The clipboard/share-link detection code was not removed.",
+    "Some remote image references that were not present in the two supplied ZIPs are left unchanged rather than being replaced with invented artwork."
+  ]
+}

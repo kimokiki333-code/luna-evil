@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://badrai.site.je/sitemap.xml

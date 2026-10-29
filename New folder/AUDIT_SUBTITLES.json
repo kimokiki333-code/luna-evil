@@ -1,0 +1,11 @@
+{
+  "feature": "English to Arabic automatic burned-in subtitles",
+  "page": "/arabic-subtitles/",
+  "manual_transcript_required": false,
+  "pipeline": ["Faster-Whisper timestamps", "Argos Translate en->ar", "FFmpeg H.264/AAC burn-in"],
+  "outputs": ["MP4", "Arabic SRT"],
+  "default_whisper_model": "base",
+  "short_video_target": "30 seconds to 5 minutes",
+  "third_party_editor_handoff": false,
+  "seo_page": true
+}
