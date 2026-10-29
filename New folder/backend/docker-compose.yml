@@ -1,0 +1,20 @@
+services:
+  badr-backend:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8787:8787"
+    environment:
+      PORT: "8787"
+      CORS_ORIGIN: "*"
+      COBALT_URL: ""
+      BETTER_AI_URL: ""
+      YTDLP_ENABLED: "true"
+      WHISPER_MODEL: "base"
+      WHISPER_DEVICE: "cpu"
+      WHISPER_COMPUTE: "int8"
+      SUBTITLE_MAX_MB: "300"
+    volumes:
+      - badr-tmp:/tmp/badr
+volumes:
+  badr-tmp:

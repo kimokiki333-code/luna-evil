@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0c10">
+<title>IntelX Launcher — standalone</title>
+<style>
+:root{--gold:#f2d46b;--cyan:#63e6ff;--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(145deg,#07080c,#0b0e15 50%,#07080c);color:#f2f5f8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+.shell{max-width:680px;margin:auto;padding:26px 18px 60px}
+h1{font-size:1.5rem;letter-spacing:-.02em;margin:6px 0 4px}
+h1 span{color:var(--gold)}
+.sub{color:#8f9ba8;font-size:.87rem;margin-bottom:18px;line-height:1.6}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:18px;padding:20px}
+.types{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.type{border:1px solid var(--line);border-radius:11px;padding:9px 14px;background:rgba(255,255,255,.04);color:#cfd8e0;font-weight:800;cursor:pointer;font-size:.83rem}
+.type.active{border-color:rgba(242,212,107,.55);background:rgba(242,212,107,.1);color:#fff}
+.row{display:flex;gap:10px}
+input[type=text]{flex:1;background:#0a0d13;color:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;font:inherit;min-width:0;direction:ltr}
+button.go{border:1px solid rgba(242,212,107,.5);border-radius:12px;padding:13px 18px;background:linear-gradient(135deg,rgba(242,212,107,.2),rgba(99,230,255,.12));color:#fff;font-weight:900;cursor:pointer;white-space:nowrap}
+.status{margin-top:12px;color:#aab5c1;font-size:.84rem;line-height:1.6;min-height:1.4em}
+.status b{color:#fff}
+.hist{margin-top:14px;display:none}
+.hist.show{display:block}
+.hist h3{font-size:.8rem;color:#8f9ba8;text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px}
+.hitem{display:flex;gap:8px;align-items:center;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:8px 12px;margin-bottom:6px;font-size:.82rem}
+.hitem code{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#cfd8e0}
+.hitem button{background:none;border:1px solid var(--line);border-radius:8px;color:#8fddec;cursor:pointer;padding:4px 10px;font-size:.75rem}
+.hitem button.del{color:#ff8fae}
+.note{margin-top:14px;color:#8f9ba8;font-size:.8rem;line-height:1.7}
+.note b{color:#cfd8e0}
+.free{display:inline-block;background:rgba(99,230,255,.12);border:1px solid rgba(99,230,255,.35);color:#a9f0ff;border-radius:8px;padding:2px 9px;font-size:.75rem;font-weight:800}
+.pro{display:inline-block;background:rgba(255,91,143,.1);border:1px solid rgba(255,91,143,.4);color:#ff8fae;border-radius:8px;padding:2px 9px;font-size:.75rem;font-weight:800}
+.credit{margin-top:16px;color:#6f7c89;font-size:.74rem;text-align:center}
+</style>
+</head>
+<body>
+<main class="shell">
+<h1>🕵️ Intel<span>X</span> Launcher</h1>
+<div class="sub">No-key breach &amp; leak search helper. Pick a selector, one tap opens the exact Intelligence X search. Your value is also copied — if the site opens empty, just paste it into its search box.</div>
+<section class="card">
+<div class="types" id="types">
+<button class="type active" data-t="email">📧 Email</button>
+<button class="type" data-t="domain">🌐 Domain</button>
+<button class="type" data-t="ip">🔢 IP / CIDR</button>
+<button class="type" data-t="url">🔗 URL</button>
+</div>
+<div class="row"><input type="text" id="q" placeholder="name@example.com" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="go" id="go">Search ↗</button></div>
+<div class="status" id="st">Choose a type, enter the value, press Search.</div>
+<div class="hist" id="histBox"><h3>Recent <button id="clearH" style="float:right;background:none;border:1px solid var(--line);border-radius:8px;color:#ff8fae;cursor:pointer;padding:3px 10px;font-size:.72rem">clear</button></h3><div id="hist"></div></div>
+<div class="note"><b>Free buckets:</b> <span class="free">WikiLeaks</span> <span class="free">Public Leaks</span> <span class="free">Dumpster</span> <span class="free">Sci-Hub</span> <span class="free">Public Web</span><br><b>Needs PRO/key:</b> <span class="pro">Pastes</span> <span class="pro">Darknet</span> <span class="pro">Whois</span> <span class="pro">Leaks</span> <span class="pro">Stealer Logs</span> <span class="pro">DNS</span><br>Rule: only search addresses and assets you own or are authorized to check.</div>
+</section>
+<div class="credit">Opens intelx.io with your selector · no account needed for free buckets · standalone file</div>
+</main>
+<script>
+(()=>{
+"use strict";
+const $=s=>document.querySelector(s);
+const types=$('#types'),q=$('#q'),go=$('#go'),st=$('#st'),histBox=$('#histBox'),hist=$('#hist');
+let kind='email';
+const PH={email:'name@example.com',domain:'example.com',ip:'8.8.8.8  or  1.2.3.0/24',url:'https://example.com/page'};
+types.addEventListener('click',e=>{
+  const b=e.target.closest('[data-t]');if(!b)return;
+  kind=b.getAttribute('data-t');
+  types.querySelectorAll('.type').forEach(x=>x.classList.toggle('active',x===b));
+  q.placeholder=PH[kind]||'';q.value='';st.innerHTML='Type the <b>'+kind+'</b>, then Search.';
+});
+function ok(v){
+  v=(v||'').trim();if(!v)return null;
+  if(kind==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v))return null;
+  if(kind==='domain'&&!/^(?!https?:\/\/)[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(v))return null;
+  if(kind==='ip'&&!/^\d{1,3}(\.\d{1,3}){3}(\/\d{1,2})?$/.test(v))return null;
+  if(kind==='url'&&!/^https?:\/\/.+\..+/i.test(v))return null;
+  return v;
+}
+let H=[];
+try{H=JSON.parse(localStorage.getItem('intelxHist')||'[]')}catch(_){H=[]}
+function saveH(){try{localStorage.setItem('intelxHist',JSON.stringify(H.slice(0,20)))}catch(_){}}
+function paintH(){
+  if(!H.length){histBox.classList.remove('show');hist.innerHTML='';return}
+  histBox.classList.add('show');
+  hist.innerHTML=H.map((h,i)=>'<div class="hitem"><code>'+String(h.k)+': '+String(h.v).replace(/</g,'&lt;')+'</code><button data-open="'+i+'">open</button><button class="del" data-del="'+i+'">✕</button></div>').join('');
+}
+hist.addEventListener('click',e=>{
+  const o=e.target.closest('[data-open]'),d=e.target.closest('[data-del]');
+  if(o){const h=H[+o.getAttribute('data-open')];if(h)launch(h.v,h.k)}
+  if(d){H.splice(+d.getAttribute('data-del'),1);saveH();paintH()}
+});
+$('#clearH').onclick=()=>{H=[];saveH();paintH()};
+async function launch(v,k){
+  const url='https://intelx.io/?s='+encodeURIComponent(v);
+  try{await navigator.clipboard.writeText(v)}catch(_){}
+  H.unshift({v,k});H=H.slice(0,20);saveH();paintH();
+  st.innerHTML='Opened IntelX for <b>'+String(v).replace(/</g,'&lt;')+'</b> — value also copied, paste it if the box opens empty.';
+  window.open(url,'_blank','noopener');
+}
+go.onclick=()=>{
+  const v=ok(q.value);
+  if(!v){st.textContent='That does not look like a valid '+kind+'. Check it and try again.';return}
+  launch(v,kind);
+};
+q.addEventListener('keydown',e=>{if(e.key==='Enter')go.onclick()});
+paintH();
+})();
+</script>
+</body>
+</html>
